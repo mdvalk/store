@@ -13,7 +13,7 @@ public interface StoreRepository extends JpaRepository<StoreEntity, String> {
     @Query(
             value = """
                     SELECT uuid, address_name
-                    FROM public.stores
+                    FROM stores
                     ORDER BY ST_Distance(geometry, ST_SetSRID(ST_MakePoint(?2, ?1), 4326))
                     LIMIT 5;
                     """,

@@ -12,10 +12,6 @@ public class StoreMapper {
         return new StoreDto(store.uuid(), store.addressName());
     }
 
-    public Store toStore(StoreDto storeDto) {
-        return new Store(storeDto.uuid(), storeDto.addressName());
-    }
-
     public Store toStore(StoreEntity storeEntity) {
         return new Store(storeEntity.getUuid(), storeEntity.getAddressName());
     }
