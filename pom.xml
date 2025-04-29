@@ -24,6 +24,7 @@
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<testcontainers.version>1.21.0</testcontainers.version>
 		<equalsverifier.version>3.19.3</equalsverifier.version>
+		<openapi-starter-webmvc-ui.version>2.8.6</openapi-starter-webmvc-ui.version>
 	</properties>
 
 	<dependencies>
@@ -46,6 +47,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>${openapi-starter-webmvc-ui.version}</version>
 		</dependency>
 
 		<dependency>
