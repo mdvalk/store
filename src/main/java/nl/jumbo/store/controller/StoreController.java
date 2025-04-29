@@ -8,6 +8,7 @@ import nl.jumbo.store.service.StoreService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,8 +25,10 @@ public class StoreController {
     private final StoreMapper storeMapper;
 
     @GetMapping(value =  { "", "/" }, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<StoreDto>> validate() {
-        var stores = storeService.getStores();
+    public ResponseEntity<List<StoreDto>> getNearestStores(
+            @RequestParam(name = "lat") double latitude,
+            @RequestParam(name = "lon") double longitude) {
+        var stores = storeService.getNearestStores(latitude, longitude);
         var storeDtos = stores.stream().map(storeMapper::toDto).toList();
         return ResponseEntity.ok(storeDtos);
     }
