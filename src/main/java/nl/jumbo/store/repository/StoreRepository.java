@@ -3,11 +3,13 @@ package nl.jumbo.store.repository;
 import nl.jumbo.store.entity.StoreEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 
 @Repository
+@RestResource(exported = false)
 public interface StoreRepository extends JpaRepository<StoreEntity, String> {
 
     @Query(
